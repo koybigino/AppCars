@@ -15,11 +15,13 @@ class CarController extends Controller
     public function index()
     {
         // SELECT * FROM cars
-        $cars = Car::all();
+        $cars = Car::all()->toJson();
+        $cars = json_decode($cars);
 
         //SELECT * FROM cars WHERE ..
         //$cars = Car::where('name','tesla')->firstOrFail();
 
+        var_dump($cars);
 
         return view('cars.index', [
             'cars' => $cars

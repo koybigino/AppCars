@@ -17,6 +17,10 @@ class Car extends Model
 
     protected $fillable = ['name', 'founded', 'desciption'];
 
+    protected $hidden = ['updated_at'];
+
+    protected $visible = ['name', 'founded', 'desciption'];
+
     // protected $dateFormat = 'h:m:s';
 
 }
