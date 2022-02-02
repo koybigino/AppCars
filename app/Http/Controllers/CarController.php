@@ -21,8 +21,6 @@ class CarController extends Controller
         //SELECT * FROM cars WHERE ..
         //$cars = Car::where('name','tesla')->firstOrFail();
 
-        var_dump($cars);
-
         return view('cars.index', [
             'cars' => $cars
         ]);
@@ -70,7 +68,6 @@ class CarController extends Controller
     public function show($id)
     {
         $car = Car::find($id);
-        
         
         return view('cars.show')->with('car', $car);
     }
