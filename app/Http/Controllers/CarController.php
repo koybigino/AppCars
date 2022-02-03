@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Car;
 use App\Models\Products;
 use App\Rules\Uppercase;
-
+use App\Http\Requests\CreateValidationRequest;
 class CarController extends Controller
 {
     /**
@@ -44,7 +44,7 @@ class CarController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(CreateValidationRequest $request)
     {
         // $car = new Car;
         // $car->name = $request->input('name');
@@ -52,12 +52,7 @@ class CarController extends Controller
         // $car->desciption = $request->input('description');
         // $car->save();
 
-        $request->validate([
-            'name' => new Uppercase,
-            'founded' => 'required|integer|min:0|max:2022',
-            'description' => 'required'
-        ]);
-
+        $request->validated();
 
         $car = Car::create([
             'name' => $request->input('name'),
@@ -106,8 +101,10 @@ class CarController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(CreateValidationRequest $request, $id)
     {
+
+        $request->validated();
 
         $car = Car::where('id', $id)->update([
             'name' => $request->input('name'),
