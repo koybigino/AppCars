@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Car;
 use App\Models\Products;
+use App\Rules\Uppercase;
 
 class CarController extends Controller
 {
@@ -50,6 +51,13 @@ class CarController extends Controller
         // $car->founded = $request->input('founded');
         // $car->desciption = $request->input('description');
         // $car->save();
+
+        $request->validate([
+            'name' => new Uppercase,
+            'founded' => 'required|integer|min:0|max:2022',
+            'description' => 'required'
+        ]);
+
 
         $car = Car::create([
             'name' => $request->input('name'),
@@ -100,6 +108,7 @@ class CarController extends Controller
      */
     public function update(Request $request, $id)
     {
+
         $car = Car::where('id', $id)->update([
             'name' => $request->input('name'),
             'founded' => $request->input('founded'),
