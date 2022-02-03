@@ -15,7 +15,7 @@ class Car extends Model
 
     public $timestamps = true;
 
-    protected $fillable = ['name', 'founded', 'desciption'];
+    protected $fillable = ['name', 'founded', 'desciption', 'image_path'];
 
     // protected $hidden = ['updated_at'];
 

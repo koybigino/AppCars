@@ -44,7 +44,7 @@ class CarController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(CreateValidationRequest $request)
+    public function store(Request $request)
     {
         // $car = new Car;
         // $car->name = $request->input('name');
@@ -52,12 +52,36 @@ class CarController extends Controller
         // $car->desciption = $request->input('description');
         // $car->save();
 
-        $request->validated();
+        // Methods we can use on $request
+        //guessExtension 
+        //getMimeType
+        //store
+        //asStore
+        //storePublicly
+        //move
+        //getClientOriginalName
+        //getClientMimeType
+        //guessClientExtension
+        //getSize
+        //getError
+        //isValid
+
+        $newImageName = time() . '-' . $request->name . '.' .$request->image->extension();
+
+        $request->image->move(public_path('images'), $newImageName);
+
+        $request->validate([
+            'name' => 'required',
+            'founded' => 'required|integer|min:0|max:2022',
+            'description' => 'required',
+            'image' => 'required'
+        ]);
 
         $car = Car::create([
             'name' => $request->input('name'),
             'founded' => $request->input('founded'),
-            'desciption' => $request->input('description')
+            'desciption' => $request->input('description'),
+            'image_path' => $newImageName
         ]);
 
         return redirect('/cars');

@@ -2,7 +2,8 @@
 
 @section('content')
     <div class="m-auto w-4/5 py-24">
-        <div class="text-center">
+        <div class="text-center ">
+            <img src="{{ asset('images/'.$car->image_path) }}" alt="" class="w-8/12 mb-8 shodow-xl" >
             <h1 class="text-5xl uppercase bold text-blue-400">
                 {{ $car->name }}
             </h1>
@@ -54,21 +55,10 @@
                         @endforelse
                     </table>
 
-                    <p class="text-left">
+                    <p>
                         Product types:
                         @forelse($car->products as $product)
                             {{ $product->name }}
-                        @empty
-                            <p>
-                                No car product description
-                            </p>
-                        @endforelse
-                    </p>
-
-                    <p class="text-right">
-                        Cars types:
-                        @forelse($product->cars as $car)
-                            {{ $car->name }}
                         @empty
                             <p>
                                 No car product description
