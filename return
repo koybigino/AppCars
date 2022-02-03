@@ -1,0 +1,29 @@
+[33mcommit 317b9adc4061193cd0a61163c206cd9cf8adb9d3[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m)[m
+Author: BIKOY-ELIE <koybigino@gmail.com>
+Date:   Wed Feb 2 10:03:23 2022 +0100
+
+    Eloquent relationship Has One
+
+[33mcommit 6d855657ceff0cf7d19c8c4e5a6f7dce4807803e[m
+Author: BIKOY-ELIE <koybigino@gmail.com>
+Date:   Wed Feb 2 09:39:42 2022 +0100
+
+    Eloquent relationship Has Many
+
+[33mcommit ec6576fe585ef7512b066e3ebc33f37f3d5f635e[m
+Author: BIKOY-ELIE <koybigino@gmail.com>
+Date:   Wed Feb 2 09:07:40 2022 +0100
+
+    Eloquent relationship ones to many
+
+[33mcommit 1a3f726106ea8b8b773fe36c881cff950e0bc997[m
+Author: BIKOY-ELIE <koybigino@gmail.com>
+Date:   Tue Feb 1 20:04:16 2022 +0100
+
+    Eloquent serialisation
+
+[33mcommit b939d575393280863acbc5c0869cd568a608c9ec[m
+Author: BIKOY-ELIE <koybigino@gmail.com>
+Date:   Tue Feb 1 19:26:27 2022 +0100
+
+    Car add, update, delete and create with Eloquent

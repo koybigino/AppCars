@@ -54,6 +54,28 @@
                         @endforelse
                     </table>
 
+                    <p class="text-left">
+                        Product types:
+                        @forelse($car->products as $product)
+                            {{ $product->name }}
+                        @empty
+                            <p>
+                                No car product description
+                            </p>
+                        @endforelse
+                    </p>
+
+                    <p class="text-right">
+                        Cars types:
+                        @forelse($product->cars as $car)
+                            {{ $car->name }}
+                        @empty
+                            <p>
+                                No car product description
+                            </p>
+                        @endforelse
+                    </p>
+
                     <hr class="mt-4 mb-8"/>
                 </div>
         </div>

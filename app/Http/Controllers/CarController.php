@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Car;
+use App\Models\Products;
 
 class CarController extends Controller
 {
@@ -68,8 +69,13 @@ class CarController extends Controller
     public function show($id)
     {
         $car = Car::find($id);
-        
-        return view('cars.show')->with('car', $car);
+
+        $product = Products::find($id);
+        // dd($product->cars);
+        return view('cars.show', [
+            'car' => $car,
+            'product' => $product
+        ]);
     }
 
     /**
@@ -81,7 +87,7 @@ class CarController extends Controller
     public function edit($id)
     {
         // $car = Car::where('id', $id)->firstOrFail();
-        $car = Car::find($id)->firstOrFail();
+        $car = Car::find($id);
         return view('cars.edit')->with('car', $car);
     }
 
